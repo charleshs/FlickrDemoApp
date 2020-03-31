@@ -16,4 +16,10 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    func configureCell(title: String?, image: String?) {
+        
+        titleLabel.text = title
+        photoImageView.loadImage(image)
+    }
 }

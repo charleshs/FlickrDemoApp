@@ -62,18 +62,21 @@ extension SearchResultViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return 10
+        
+        return photos?.list.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier:
-                PhotoCollectionViewCell.identifier, for: indexPath) as? PhotoCollectionViewCell
+                PhotoCollectionViewCell.identifier, for: indexPath) as? PhotoCollectionViewCell,
+            let photo = photos?.list[indexPath.item]
             else {
                 return UICollectionViewCell()
         }
         
+        cell.configureCell(title: photo.title, image: photo.urlString)
         return cell
     }
 }
@@ -90,6 +93,7 @@ extension SearchResultViewController: UICollectionViewDelegateFlowLayout {
         let horizontalIndent = collectionView.contentInset.left + collectionView.contentInset.right
         let resolvedWidth = totalWidth - itemSpacing * CGFloat(numberOfColumns - 1) - horizontalIndent
         let itemWidth = resolvedWidth / CGFloat(numberOfColumns)
+        
         return CGSize(width: itemWidth, height: itemWidth * heightToWidthRatio)
     }
 }
