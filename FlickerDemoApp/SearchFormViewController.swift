@@ -27,9 +27,9 @@ class SearchFormViewController: UIViewController {
     }()
     
     lazy var searchButton: UIButton = {
-        let button = UIButton()
+        let button = CSButton()
         button.setTitle("搜尋", for: .normal)
-        button.backgroundColor = .blue
+        button.backgroundColor = .systemBlue
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(search(_:)), for: .touchUpInside)
         return button
@@ -51,14 +51,33 @@ class SearchFormViewController: UIViewController {
         super.viewDidLoad()
         
         setupViews()
+        checkTextFieldsInput()
     }
     
     @objc func search(_ sender: UIButton) {
-        print("search")
+        guard
+            let searchContent = contentOfSearchTextField.text,
+            let itemsPerPage = numberOfItemsPerPageTextField.text
+        else {
+            return
+        }
+        print(searchContent, itemsPerPage)
+    }
+    
+    private func prepareSearchManager() {
+        
+    }
+    
+    private func showSearchResult() {
+        
     }
     
     @objc func textFieldOnEditingChanged(_ sender: UITextField) {
-        print("textFieldOnEditingChanged")
+        checkTextFieldsInput()
+    }
+    
+    private func checkTextFieldsInput() {
+        searchButton.isEnabled = !(contentOfSearchTextField.isEmpty || numberOfItemsPerPageTextField.isEmpty)
     }
     
     private func setupViews() {
