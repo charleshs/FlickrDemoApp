@@ -22,6 +22,8 @@
 		7CC0FC402433929C00B0AD37 /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC0FC3F2433929C00B0AD37 /* PhotosModel.swift */; };
 		7CC0FC422433977100B0AD37 /* Flickr.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CC0FC412433977100B0AD37 /* Flickr.plist */; };
 		7CC0FC4424339CD500B0AD37 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC0FC4324339CD500B0AD37 /* Storyboarded.swift */; };
+		7CC0FC462433A32600B0AD37 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC0FC452433A32600B0AD37 /* PhotoCollectionViewCell.swift */; };
+		7CC0FC482433A3E800B0AD37 /* IdentifierConfigurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC0FC472433A3E800B0AD37 /* IdentifierConfigurer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		7CC0FC3F2433929C00B0AD37 /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
 		7CC0FC412433977100B0AD37 /* Flickr.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Flickr.plist; sourceTree = "<group>"; };
 		7CC0FC4324339CD500B0AD37 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		7CC0FC452433A32600B0AD37 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		7CC0FC472433A3E800B0AD37 /* IdentifierConfigurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierConfigurer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,35 +78,35 @@
 		7C562FA6243319A900D451B4 /* FlickrDemo */ = {
 			isa = PBXGroup;
 			children = (
+				7CC0FC4B2433A5F000B0AD37 /* Application */,
+				7C562FBE2433233200D451B4 /* Extensions+Helper */,
 				7C8D6DF8243385E400EEE795 /* Models */,
 				7C8D6DF324337FA200EEE795 /* Views */,
-				7C562FBE2433233200D451B4 /* Extensions */,
-				7C562FA7243319A900D451B4 /* AppDelegate.swift */,
-				7C562FAB243319A900D451B4 /* SearchFormViewController.swift */,
-				7C562FBB2433216E00D451B4 /* SearchResultViewController.swift */,
-				7CC0FC4324339CD500B0AD37 /* Storyboarded.swift */,
-				7C562FAD243319A900D451B4 /* Main.storyboard */,
+				7CC0FC4A2433A5D200B0AD37 /* Controllers */,
 				7C562FB0243319AB00D451B4 /* Assets.xcassets */,
-				7C562FB2243319AB00D451B4 /* LaunchScreen.storyboard */,
 				7C562FB5243319AB00D451B4 /* Info.plist */,
 				7CC0FC412433977100B0AD37 /* Flickr.plist */,
 			);
 			path = FlickrDemo;
 			sourceTree = "<group>";
 		};
-		7C562FBE2433233200D451B4 /* Extensions */ = {
+		7C562FBE2433233200D451B4 /* Extensions+Helper */ = {
 			isa = PBXGroup;
 			children = (
 				7C562FBF2433234200D451B4 /* UIView+Extension.swift */,
 				7C8D6DEF2433674700EEE795 /* UIScreen+Extension.swift */,
 				7C8D6DF124337E6A00EEE795 /* UITextField+Extension.swift */,
+				7CC0FC472433A3E800B0AD37 /* IdentifierConfigurer.swift */,
+				7CC0FC4324339CD500B0AD37 /* Storyboarded.swift */,
 			);
-			path = Extensions;
+			path = "Extensions+Helper";
 			sourceTree = "<group>";
 		};
 		7C8D6DF324337FA200EEE795 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7C562FAD243319A900D451B4 /* Main.storyboard */,
+				7CC0FC452433A32600B0AD37 /* PhotoCollectionViewCell.swift */,
 				7C8D6DF42433807000EEE795 /* CSButton.swift */,
 			);
 			path = Views;
@@ -116,6 +120,24 @@
 				7CC0FC3F2433929C00B0AD37 /* PhotosModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7CC0FC4A2433A5D200B0AD37 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7C562FAB243319A900D451B4 /* SearchFormViewController.swift */,
+				7C562FBB2433216E00D451B4 /* SearchResultViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		7CC0FC4B2433A5F000B0AD37 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				7C562FA7243319A900D451B4 /* AppDelegate.swift */,
+				7C562FB2243319AB00D451B4 /* LaunchScreen.storyboard */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,7 +217,9 @@
 				7C8D6DF72433856200EEE795 /* HTTPClient.swift in Sources */,
 				7C562FBC2433216E00D451B4 /* SearchResultViewController.swift in Sources */,
 				7C04AB24243386960068F741 /* PhotoSearchManager.swift in Sources */,
+				7CC0FC462433A32600B0AD37 /* PhotoCollectionViewCell.swift in Sources */,
 				7C8D6DF224337E6A00EEE795 /* UITextField+Extension.swift in Sources */,
+				7CC0FC482433A3E800B0AD37 /* IdentifierConfigurer.swift in Sources */,
 				7CC0FC402433929C00B0AD37 /* PhotosModel.swift in Sources */,
 				7CC0FC4424339CD500B0AD37 /* Storyboarded.swift in Sources */,
 				7C562FC02433234200D451B4 /* UIView+Extension.swift in Sources */,

@@ -56,6 +56,7 @@ class SearchFormViewController: UIViewController {
     }
     
     @objc func search(_ sender: UIButton) {
+        
         guard
             let searchContent = contentOfSearchTextField.text,
             let itemsPerPage = numberOfItemsPerPageTextField.text
@@ -71,20 +72,24 @@ class SearchFormViewController: UIViewController {
     }
     
     private func showSearchResult(_ photoSearcher: PhotoSearchable) {
+        
         let searchResultVC = SearchResultViewController.instantiate()
         searchResultVC.photoSearcher = photoSearcher
         navigationController?.pushViewController(searchResultVC, animated: true)
     }
     
     @objc func textFieldOnEditingChanged(_ sender: UITextField) {
+        
         checkTextFieldsInput()
     }
     
     private func checkTextFieldsInput() {
+        
         searchButton.isEnabled = !(contentOfSearchTextField.isEmpty || numberOfItemsPerPageTextField.isEmpty)
     }
     
     private func setupViews() {
+        
         view.addSubview(vStackView)
         vStackView.anchorCenterSuperview()
         vStackView.widthAnchor.constraint(equalToConstant: UIScreen.width - 40).isActive = true
