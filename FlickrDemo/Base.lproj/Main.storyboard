@@ -11,7 +11,7 @@
         <!--Search Form View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SearchFormViewController" customModule="FlickerDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SearchFormViewController" customModule="FlickrDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,7 +27,7 @@
         <!--Search Result View Controller-->
         <scene sceneID="7Wp-7n-EgW">
             <objects>
-                <viewController storyboardIdentifier="SearchResultViewController" id="cDL-Eu-DB4" customClass="SearchResultViewController" customModule="FlickerDemoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchResultViewController" id="cDL-Eu-DB4" customClass="SearchResultViewController" customModule="FlickrDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jfZ-zS-StJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
