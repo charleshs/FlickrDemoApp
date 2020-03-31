@@ -8,14 +8,39 @@
 
 import UIKit
 
-class SearchResultViewController: UIViewController {
-
+class SearchResultViewController: UIViewController, Storyboarded {
+    
+    static var storyboard: UIStoryboard {
+        return UIStoryboard(name: "Main", bundle: nil)
+    }
+    
+    public var photoSearcher: PhotoSearchable?
+    
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    private var photos: Photos? {
+        didSet {
+            guard photos != nil else { return }
+            DispatchQueue.main.async { [weak self] in
+                self?.collectionView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        fetchPhotoList()
+    }
+    
+    private func fetchPhotoList() {
+        photoSearcher?.fetchPhotoList(completion: { (result) in
+            switch result {
+            case let .success(photos):
+                self.photos = photos
+            case let .failure(error):
+                print(error)
+            }
+        })
     }
 }
 

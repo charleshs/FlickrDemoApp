@@ -37,6 +37,10 @@ struct Photo: Codable {
     let farm: Int
     let title: String
     
+    var urlString: String {
+        return "https://farm\(farm).staticflickr.com/\(server)/\(id)_\(secret)_n.jpg"
+    }
+    
     enum CodingKeys: String, CodingKey {
         case id
         case secret

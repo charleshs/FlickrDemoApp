@@ -85,9 +85,12 @@ struct PhotoSearchRequest: CSRequest {
     }
 }
 
-class FlickrAPIManager {
+protocol PhotoSearchable {
     
-    static let shared = FlickrAPIManager()
+    func fetchPhotoList(completion: @escaping (Result<Photos, Error>) -> Void)
+}
+
+class PhotoSearchManager: PhotoSearchable {
     
     var apiKey: String {
         guard
@@ -100,9 +103,15 @@ class FlickrAPIManager {
         return apiKey
     }
     
-    func fetchPhotoList(searchText: String,
-                        itemsPerPage: Int,
-                        completion: @escaping (Result<Photos, Error>) -> Void) {
+    private var searchText: String
+    private var itemsPerPage: Int
+    
+    init(searchText: String, itemsPerPage: Int) {
+        self.searchText = searchText
+        self.itemsPerPage = itemsPerPage
+    }
+    
+    func fetchPhotoList(completion: @escaping (Result<Photos, Error>) -> Void) {
         
         let photoSearchRequest = PhotoSearchRequest(queryParams: [
             .apiKey(apiKey),

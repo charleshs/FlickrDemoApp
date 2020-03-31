@@ -22,6 +22,7 @@ class SearchFormViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "每頁呈現數量"
         textField.borderStyle = .roundedRect
+        textField.keyboardType = .numberPad
         textField.addTarget(self, action: #selector(textFieldOnEditingChanged(_:)), for: .editingChanged)
         return textField
     }()
@@ -61,15 +62,18 @@ class SearchFormViewController: UIViewController {
         else {
             return
         }
-        print(searchContent, itemsPerPage)
+        let photoSearchManager = PhotoSearchManager(searchText: searchContent, itemsPerPage: Int(itemsPerPage) ?? 0)
+        showSearchResult(photoSearchManager)
     }
     
     private func prepareSearchManager() {
         
     }
     
-    private func showSearchResult() {
-        
+    private func showSearchResult(_ photoSearcher: PhotoSearchable) {
+        let searchResultVC = SearchResultViewController.instantiate()
+        searchResultVC.photoSearcher = photoSearcher
+        navigationController?.pushViewController(searchResultVC, animated: true)
     }
     
     @objc func textFieldOnEditingChanged(_ sender: UITextField) {
