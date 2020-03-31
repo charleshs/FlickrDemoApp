@@ -14,6 +14,7 @@
 		7C562FB4243319AB00D451B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C562FB2243319AB00D451B4 /* LaunchScreen.storyboard */; };
 		7C562FBC2433216E00D451B4 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C562FBB2433216E00D451B4 /* SearchResultViewController.swift */; };
 		7C562FC02433234200D451B4 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C562FBF2433234200D451B4 /* UIView+Extension.swift */; };
+		7C8D6DF02433674700EEE795 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8D6DEF2433674700EEE795 /* UIScreen+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		7C562FB5243319AB00D451B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C562FBB2433216E00D451B4 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		7C562FBF2433234200D451B4 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		7C8D6DEF2433674700EEE795 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				7C562FBF2433234200D451B4 /* UIView+Extension.swift */,
+				7C8D6DEF2433674700EEE795 /* UIScreen+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C562FAC243319A900D451B4 /* SearchFormViewController.swift in Sources */,
+				7C8D6DF02433674700EEE795 /* UIScreen+Extension.swift in Sources */,
 				7C562FBC2433216E00D451B4 /* SearchResultViewController.swift in Sources */,
 				7C562FC02433234200D451B4 /* UIView+Extension.swift in Sources */,
 				7C562FA8243319A900D451B4 /* AppDelegate.swift in Sources */,
