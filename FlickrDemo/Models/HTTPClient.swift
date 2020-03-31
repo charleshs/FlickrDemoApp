@@ -43,6 +43,15 @@ extension CSRequest {
         request.httpMethod = method.rawValue
         return request
     }
+    
+    func makeQueryString(_ params: [String: String]) -> String {
+        
+        var queryStrings: [String] = []
+        for (key, value) in params {
+            queryStrings.append("\(key)=\(value)")
+        }
+        return queryStrings.joined(separator: "&")
+    }
 }
 
 class HTTPClient {
