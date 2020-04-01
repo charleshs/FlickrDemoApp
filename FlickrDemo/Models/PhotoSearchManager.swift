@@ -9,6 +9,7 @@
 import Foundation
 
 enum QueryParam {
+    
     case method(String)
     case format(String)
     case noJsonCallback(Int)
@@ -87,7 +88,7 @@ struct PhotoSearchRequest: CSRequest {
 
 protocol PhotoSearchable {
     
-    func fetchPhotoList(completion: @escaping (Result<Photos, Error>) -> Void)
+    func fetchPhotoList(page: Int, completion: @escaping (Result<Photos, Error>) -> Void)
 }
 
 class PhotoSearchManager: PhotoSearchable {
@@ -111,12 +112,13 @@ class PhotoSearchManager: PhotoSearchable {
         self.itemsPerPage = itemsPerPage
     }
     
-    func fetchPhotoList(completion: @escaping (Result<Photos, Error>) -> Void) {
+    func fetchPhotoList(page: Int, completion: @escaping (Result<Photos, Error>) -> Void) {
         
         let photoSearchRequest = PhotoSearchRequest(queryParams: [
             .apiKey(apiKey),
             .text(searchText),
-            .perPage(itemsPerPage)
+            .perPage(itemsPerPage),
+            .page(page)
         ])
         
         HTTPClient.shared.request(photoSearchRequest) { (result) in

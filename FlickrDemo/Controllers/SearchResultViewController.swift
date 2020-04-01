@@ -22,9 +22,11 @@ class SearchResultViewController: UIViewController, Storyboarded {
         }
     }
     
-    private var photos: Photos? {
+    private var isFetchingNextPage: Bool = false
+    private var currentPage: Int = 1
+    
+    private var photoList: [Photo] = [] {
         didSet {
-            guard photos != nil else { return }
             DispatchQueue.main.async { [weak self] in
                 self?.collectionView.reloadData()
             }
@@ -40,16 +42,18 @@ class SearchResultViewController: UIViewController, Storyboarded {
         fetchPhotoList()
     }
     
-    private func fetchPhotoList() {
+    private func fetchPhotoList(page: Int = 1) {
         
-        photoSearcher?.fetchPhotoList(completion: { (result) in
+        photoSearcher?.fetchPhotoList(page: page) { [weak self] (result) in
             switch result {
             case let .success(photos):
-                self.photos = photos
+                self?.photoList.append(contentsOf: photos.list)
+                self?.currentPage = page
             case let .failure(error):
                 print(error)
             }
-        })
+            self?.isFetchingNextPage = false
+        }
     }
     
     private func setupCollectionView() {
@@ -63,19 +67,18 @@ extension SearchResultViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
         
-        return photos?.list.count ?? 0
+        return photoList.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier:
-                PhotoCollectionViewCell.identifier, for: indexPath) as? PhotoCollectionViewCell,
-            let photo = photos?.list[indexPath.item]
+                PhotoCollectionViewCell.identifier, for: indexPath) as? PhotoCollectionViewCell
             else {
                 return UICollectionViewCell()
         }
-        
+        let photo = photoList[indexPath.item]
         cell.configureCell(title: photo.title, image: photo.urlString)
         return cell
     }
@@ -95,5 +98,16 @@ extension SearchResultViewController: UICollectionViewDelegateFlowLayout {
         let itemWidth = resolvedWidth / CGFloat(numberOfColumns)
         
         return CGSize(width: itemWidth, height: itemWidth * heightToWidthRatio)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let yOffset = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        
+        if yOffset > (contentHeight - scrollView.frame.height * 2), !isFetchingNextPage {
+            self.isFetchingNextPage = true
+            self.fetchPhotoList(page: currentPage + 1)
+        }
     }
 }

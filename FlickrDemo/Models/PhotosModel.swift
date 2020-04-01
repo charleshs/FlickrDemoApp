@@ -38,7 +38,7 @@ struct Photo: Codable {
     let title: String
     
     var urlString: String {
-        return "https://farm\(farm).staticflickr.com/\(server)/\(id)_\(secret)_n.jpg"
+        return "https://farm\(farm).staticflickr.com/\(server)/\(id)_\(secret).jpg"
     }
     
     enum CodingKeys: String, CodingKey {

@@ -58,17 +58,13 @@ class SearchFormViewController: UIViewController {
     @objc func search(_ sender: UIButton) {
         
         guard
-            let searchContent = contentOfSearchTextField.text,
-            let itemsPerPage = numberOfItemsPerPageTextField.text
+            let searchContent = contentOfSearchTextField.text?.trimmingCharacters(in: .whitespaces),
+            let itemsPerPage = numberOfItemsPerPageTextField.text?.trimmingCharacters(in: .whitespaces)
         else {
             return
         }
         let photoSearchManager = PhotoSearchManager(searchText: searchContent, itemsPerPage: Int(itemsPerPage) ?? 0)
         showSearchResult(photoSearchManager)
-    }
-    
-    private func prepareSearchManager() {
-        
     }
     
     private func showSearchResult(_ photoSearcher: PhotoSearchable) {

@@ -34,7 +34,10 @@ extension CSRequest {
     
     func makeRequest() throws -> URLRequest {
         
-        guard let url = URL(string: urlString) else {
+        guard
+            let urlQueryString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+            let url = URL(string: urlQueryString)
+        else {
             throw HTTPClientError.invalidURL
         }
         var request = URLRequest(url: url)
