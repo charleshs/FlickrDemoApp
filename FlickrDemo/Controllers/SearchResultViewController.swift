@@ -58,6 +58,7 @@ class SearchResultViewController: UIViewController, Storyboarded {
     
     private func setupCollectionView() {
         
+        collectionView.csRegisterNibCell(nibClassType: PhotoCollectionViewCell.self)
         collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
 }

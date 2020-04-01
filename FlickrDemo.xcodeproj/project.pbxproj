@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C0125E924346BF0003410BF /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0125E824346BF0003410BF /* PhotoCollectionViewCell.xib */; };
 		7C04AB24243386960068F741 /* PhotoSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AB23243386960068F741 /* PhotoSearchManager.swift */; };
 		7C562FA8243319A900D451B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C562FA7243319A900D451B4 /* AppDelegate.swift */; };
 		7C562FAC243319A900D451B4 /* SearchFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C562FAB243319A900D451B4 /* SearchFormViewController.swift */; };
@@ -23,13 +24,14 @@
 		7CC0FC422433977100B0AD37 /* Flickr.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CC0FC412433977100B0AD37 /* Flickr.plist */; };
 		7CC0FC4424339CD500B0AD37 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC0FC4324339CD500B0AD37 /* Storyboarded.swift */; };
 		7CC0FC462433A32600B0AD37 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC0FC452433A32600B0AD37 /* PhotoCollectionViewCell.swift */; };
-		7CC0FC482433A3E800B0AD37 /* IdentifierConfigurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC0FC472433A3E800B0AD37 /* IdentifierConfigurer.swift */; };
+		7CC0FC482433A3E800B0AD37 /* CellRegistrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC0FC472433A3E800B0AD37 /* CellRegistrator.swift */; };
 		7CC0FC4F2433A87E00B0AD37 /* KingfisherWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC0FC4E2433A87E00B0AD37 /* KingfisherWrapper.swift */; };
 		886D19145D2D7353428A3B19 /* Pods_FlickrDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6EA95844FFCF82B830D358A /* Pods_FlickrDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		47C0C90F791AEBB23C3864C5 /* Pods-FlickrDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrDemo.debug.xcconfig"; path = "Target Support Files/Pods-FlickrDemo/Pods-FlickrDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		7C0125E824346BF0003410BF /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		7C04AB23243386960068F741 /* PhotoSearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchManager.swift; sourceTree = "<group>"; };
 		7C562FA4243319A900D451B4 /* FlickrDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C562FA7243319A900D451B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +50,7 @@
 		7CC0FC412433977100B0AD37 /* Flickr.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Flickr.plist; sourceTree = "<group>"; };
 		7CC0FC4324339CD500B0AD37 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		7CC0FC452433A32600B0AD37 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
-		7CC0FC472433A3E800B0AD37 /* IdentifierConfigurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierConfigurer.swift; sourceTree = "<group>"; };
+		7CC0FC472433A3E800B0AD37 /* CellRegistrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellRegistrator.swift; sourceTree = "<group>"; };
 		7CC0FC4E2433A87E00B0AD37 /* KingfisherWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingfisherWrapper.swift; sourceTree = "<group>"; };
 		D6EA95844FFCF82B830D358A /* Pods_FlickrDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlickrDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEAF293DCC9FA8AE0DBB38B1 /* Pods-FlickrDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrDemo.release.xcconfig"; path = "Target Support Files/Pods-FlickrDemo/Pods-FlickrDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,7 +108,7 @@
 				7C562FBF2433234200D451B4 /* UIView+Extension.swift */,
 				7C8D6DEF2433674700EEE795 /* UIScreen+Extension.swift */,
 				7C8D6DF124337E6A00EEE795 /* UITextField+Extension.swift */,
-				7CC0FC472433A3E800B0AD37 /* IdentifierConfigurer.swift */,
+				7CC0FC472433A3E800B0AD37 /* CellRegistrator.swift */,
 				7CC0FC4324339CD500B0AD37 /* Storyboarded.swift */,
 			);
 			path = "Extensions+Helper";
@@ -117,6 +119,7 @@
 			children = (
 				7C562FAD243319A900D451B4 /* Main.storyboard */,
 				7CC0FC452433A32600B0AD37 /* PhotoCollectionViewCell.swift */,
+				7C0125E824346BF0003410BF /* PhotoCollectionViewCell.xib */,
 				7C8D6DF42433807000EEE795 /* CSButton.swift */,
 			);
 			path = Views;
@@ -236,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C562FB4243319AB00D451B4 /* LaunchScreen.storyboard in Resources */,
+				7C0125E924346BF0003410BF /* PhotoCollectionViewCell.xib in Resources */,
 				7CC0FC422433977100B0AD37 /* Flickr.plist in Resources */,
 				7C562FB1243319AB00D451B4 /* Assets.xcassets in Resources */,
 				7C562FAF243319A900D451B4 /* Main.storyboard in Resources */,
@@ -299,7 +303,7 @@
 				7CC0FC462433A32600B0AD37 /* PhotoCollectionViewCell.swift in Sources */,
 				7C8D6DF224337E6A00EEE795 /* UITextField+Extension.swift in Sources */,
 				7CC0FC4F2433A87E00B0AD37 /* KingfisherWrapper.swift in Sources */,
-				7CC0FC482433A3E800B0AD37 /* IdentifierConfigurer.swift in Sources */,
+				7CC0FC482433A3E800B0AD37 /* CellRegistrator.swift in Sources */,
 				7CC0FC402433929C00B0AD37 /* PhotosModel.swift in Sources */,
 				7CC0FC4424339CD500B0AD37 /* Storyboarded.swift in Sources */,
 				7C562FC02433234200D451B4 /* UIView+Extension.swift in Sources */,
