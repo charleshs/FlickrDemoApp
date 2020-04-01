@@ -14,7 +14,7 @@ class SearchResultViewController: UIViewController, Storyboarded {
         return UIStoryboard(name: "Main", bundle: nil)
     }
     
-    public var photoSearcher: PhotoSearchable?
+    public var photoListProvider: PhotoListProvider?
     
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
@@ -25,7 +25,7 @@ class SearchResultViewController: UIViewController, Storyboarded {
     private var isFetchingNextPage: Bool = false
     private var currentPage: Int = 1
     
-    private var photoList: [Photo] = [] {
+    private var photoList: [PhotoInterface] = [] {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.collectionView.reloadData()
@@ -44,10 +44,10 @@ class SearchResultViewController: UIViewController, Storyboarded {
     
     private func fetchPhotoList(page: Int = 1) {
         
-        photoSearcher?.fetchPhotoList(page: page) { [weak self] (result) in
+        photoListProvider?.fetchPhotoList(page: page) { [weak self] (result) in
             switch result {
             case let .success(photos):
-                self?.photoList.append(contentsOf: photos.list)
+                self?.photoList.append(contentsOf: photos)
                 self?.currentPage = page
             case let .failure(error):
                 print(error)

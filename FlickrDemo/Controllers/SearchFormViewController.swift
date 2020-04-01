@@ -67,10 +67,10 @@ class SearchFormViewController: UIViewController {
         showSearchResult(photoSearchManager)
     }
     
-    private func showSearchResult(_ photoSearcher: PhotoSearchable) {
+    private func showSearchResult(_ provider: PhotoListProvider) {
         
         let searchResultVC = SearchResultViewController.instantiate()
-        searchResultVC.photoSearcher = photoSearcher
+        searchResultVC.photoListProvider = provider
         navigationController?.pushViewController(searchResultVC, animated: true)
     }
     

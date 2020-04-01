@@ -29,17 +29,13 @@ struct Photos: Codable {
     }
 }
 
-struct Photo: Codable {
+struct Photo: Codable, PhotoInterface {
     
     let id: String
     let secret: String
     let server: String
     let farm: Int
     let title: String
-    
-    var urlString: String {
-        return "https://farm\(farm).staticflickr.com/\(server)/\(id)_\(secret).jpg"
-    }
     
     enum CodingKeys: String, CodingKey {
         case id

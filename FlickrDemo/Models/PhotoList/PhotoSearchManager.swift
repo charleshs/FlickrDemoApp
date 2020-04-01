@@ -86,12 +86,12 @@ struct PhotoSearchRequest: CSRequest {
     }
 }
 
-protocol PhotoSearchable {
+protocol PhotoListProvider {
     
-    func fetchPhotoList(page: Int, completion: @escaping (Result<Photos, Error>) -> Void)
+    func fetchPhotoList(page: Int, completion: @escaping (Result<[PhotoInterface], Error>) -> Void)
 }
 
-class PhotoSearchManager: PhotoSearchable {
+class PhotoSearchManager: PhotoListProvider {
     
     var apiKey: String {
         guard
@@ -112,7 +112,7 @@ class PhotoSearchManager: PhotoSearchable {
         self.itemsPerPage = itemsPerPage
     }
     
-    func fetchPhotoList(page: Int, completion: @escaping (Result<Photos, Error>) -> Void) {
+    func fetchPhotoList(page: Int, completion: @escaping (Result<[PhotoInterface], Error>) -> Void) {
         
         let photoSearchRequest = PhotoSearchRequest(queryParams: [
             .apiKey(apiKey),
@@ -126,7 +126,7 @@ class PhotoSearchManager: PhotoSearchable {
             case let .success(data):
                 do {
                     let response = try JSONDecoder().decode(PhotosSearchResponse.self, from: data)
-                    completion(.success(response.photos))
+                    completion(.success(response.photos.list))
                 } catch {
                     completion(.failure(error))
                 }
