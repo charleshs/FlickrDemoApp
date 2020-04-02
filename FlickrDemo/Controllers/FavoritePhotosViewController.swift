@@ -9,16 +9,19 @@
 import UIKit
 
 class FavoritePhotosViewController: UIViewController {
-
+    
+    // MARK: - IBOutlets
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             setupCollectionView()
         }
     }
     
+    // MARK: - Private Constants
     private let numberOfColumns: Int = 2
     private let heightToWidthRatio: CGFloat = 1.25
     
+    // MARK: - Private Vars
     private var photoList: [PhotoPresentable] = [] {
         didSet {
             DispatchQueue.main.async { [weak self] in
@@ -29,19 +32,24 @@ class FavoritePhotosViewController: UIViewController {
     
     private var photoListObservation: NSKeyValueObservation?
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupViews()
         fetchPhotoList()
+        observeLoaclStorage()
+    }
+    
+    // MARK: - Private Methods
+    private func setupViews() {
+        navigationItem.title = "我的最愛"
+    }
+    
+    private func setupCollectionView() {
         
-        photoListObservation = StorageManager.shared.observe(
-            \.photoList,
-            options: [.new],
-            changeHandler: { [weak self] (_, change) in
-                if let photos = change.newValue {
-                    self?.photoList = photos.compactMap { $0.converted() }
-                }
-        })
+        collectionView.csRegisterNibCell(nibClassType: PhotoCollectionViewCell.self)
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
     private func fetchPhotoList() {
@@ -56,13 +64,20 @@ class FavoritePhotosViewController: UIViewController {
         }
     }
     
-    private func setupCollectionView() {
+    private func observeLoaclStorage() {
         
-        collectionView.csRegisterNibCell(nibClassType: PhotoCollectionViewCell.self)
-        collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        photoListObservation = StorageManager.shared.observe(
+            \.photoList,
+            options: [.new],
+            changeHandler: { [weak self] (_, change) in
+                if let photos = change.newValue {
+                    self?.photoList = photos.compactMap { $0.converted() }
+                }
+        })
     }
 }
 
+// MARK: - UICollectionViewDataSource
 extension FavoritePhotosViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -88,6 +103,7 @@ extension FavoritePhotosViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 extension FavoritePhotosViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,

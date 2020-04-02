@@ -10,7 +10,8 @@ import UIKit
 
 class SearchFormViewController: UIViewController {
     
-    lazy var contentOfSearchTextField: UITextField = {
+    // MARK: - Private iVars
+    private lazy var contentOfSearchTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "欲搜尋內容"
         textField.borderStyle = .roundedRect
@@ -18,7 +19,7 @@ class SearchFormViewController: UIViewController {
         return textField
     }()
     
-    lazy var numberOfItemsPerPageTextField: UITextField = {
+    private lazy var numberOfItemsPerPageTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "每頁呈現數量"
         textField.borderStyle = .roundedRect
@@ -27,7 +28,7 @@ class SearchFormViewController: UIViewController {
         return textField
     }()
     
-    lazy var searchButton: UIButton = {
+    private lazy var searchButton: UIButton = {
         let button = DeactivatableButton()
         button.setTitle("搜尋", for: .normal)
         button.backgroundColor = .systemBlue
@@ -36,7 +37,7 @@ class SearchFormViewController: UIViewController {
         return button
     }()
     
-    lazy var vStackView: UIStackView = {
+    private lazy var vStackView: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [
             self.contentOfSearchTextField,
             self.numberOfItemsPerPageTextField,
@@ -48,6 +49,7 @@ class SearchFormViewController: UIViewController {
         return stack
     }()
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,6 +57,7 @@ class SearchFormViewController: UIViewController {
         checkTextFieldsInput()
     }
     
+    // MARK: - User Actions
     @objc func search(_ sender: UIButton) {
         
         guard
@@ -64,32 +67,38 @@ class SearchFormViewController: UIViewController {
             return
         }
         let photoSearchManager = PhotoSearchManager(searchText: searchContent, itemsPerPage: Int(itemsPerPage) ?? 0)
-        showSearchResult(photoSearchManager)
+        showSearchResult(photoSearchManager, with: searchContent)
     }
     
-    private func showSearchResult(_ provider: PhotoListProvider) {
+    // MARK: - Private Methods
+    private func showSearchResult(_ provider: PhotoListProvider, with title: String) {
         
         let searchResultVC = SearchResultViewController.instantiate()
         searchResultVC.photoListProvider = provider
+        searchResultVC.searchText = title
         navigationController?.pushViewController(searchResultVC, animated: true)
     }
     
+    // MARK: - Selectors
     @objc func textFieldOnEditingChanged(_ sender: UITextField) {
         
         checkTextFieldsInput()
     }
     
-    private func checkTextFieldsInput() {
-        
-        searchButton.isEnabled = !(contentOfSearchTextField.isEmpty || numberOfItemsPerPageTextField.isEmpty)
-    }
-    
+    // MARK: - Private Methods
     private func setupViews() {
         
         view.addSubview(vStackView)
         vStackView.anchorCenterSuperview()
         vStackView.widthAnchor.constraint(equalToConstant: UIScreen.width - 40).isActive = true
         vStackView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        
+        navigationItem.title = "搜尋輸入頁"
+    }
+    
+    private func checkTextFieldsInput() {
+        
+        searchButton.isEnabled = !(contentOfSearchTextField.isEmpty || numberOfItemsPerPageTextField.isEmpty)
     }
 }
 

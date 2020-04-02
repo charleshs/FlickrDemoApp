@@ -92,7 +92,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Wty-rf-hk3">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P9S-Vp-Dcn">
                                     <size key="itemSize" width="128" height="128"/>
@@ -116,14 +116,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qr1-fq-9ia"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="Acj-wb-C6N"/>
+                    <navigationItem key="navigationItem" id="Id5-N8-vfg"/>
                     <connections>
                         <outlet property="collectionView" destination="Wty-rf-hk3" id="Wlu-jD-uET"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5mV-6C-PjM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1048" y="813"/>
+            <point key="canvasLocation" x="1957.9710144927537" y="812.94642857142856"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Uy7-Ef-x3M">
@@ -137,12 +137,31 @@
                     </tabBar>
                     <connections>
                         <segue destination="NXo-n1-d4d" kind="relationship" relationship="viewControllers" id="ird-Z4-0gc"/>
-                        <segue destination="tJq-k6-g4C" kind="relationship" relationship="viewControllers" id="UbT-mm-HNi"/>
+                        <segue destination="rAe-e1-af4" kind="relationship" relationship="viewControllers" id="UbT-mm-HNi"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wGd-8z-DHu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136" y="416"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hxd-ga-aDl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rAe-e1-af4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="Acj-wb-C6N"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7tf-r2-3Q0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tJq-k6-g4C" kind="relationship" relationship="rootViewController" id="5Ux-C6-Bgq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g3D-81-VIi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="812.94642857142856"/>
         </scene>
     </scenes>
 </document>

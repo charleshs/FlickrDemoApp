@@ -10,18 +10,23 @@ import UIKit
 
 class SearchResultViewController: UIViewController, Storyboarded {
     
+    // MARK: - Storyboarded
     static var storyboard: UIStoryboard {
         return UIStoryboard(name: "Main", bundle: nil)
     }
     
+    // MARK: - Public Vars
     public var photoListProvider: PhotoListProvider?
+    public var searchText: String?
     
+    // MARK: - IBOutlets
     @IBOutlet weak var collectionView: UICollectionView! {
         didSet {
             setupCollectionView()
         }
     }
     
+    // MARK: - Private Vars
     private var isFetchingNextPage: Bool = false
     private var currentPage: Int = 1
     
@@ -33,13 +38,27 @@ class SearchResultViewController: UIViewController, Storyboarded {
         }
     }
     
+    // MARK: - Private Constants
     private let numberOfColumns: Int = 2
     private let heightToWidthRatio: CGFloat = 1.25
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupViews()
         fetchPhotoList()
+    }
+    
+    // MARK: - Private Methods
+    private func setupViews() {
+        navigationItem.title = "搜尋結果 \(searchText ?? "")"
+    }
+    
+    private func setupCollectionView() {
+        
+        collectionView.csRegisterNibCell(nibClassType: PhotoCollectionViewCell.self)
+        collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
     private func fetchPhotoList(page: Int = 1) {
@@ -55,14 +74,9 @@ class SearchResultViewController: UIViewController, Storyboarded {
             self?.isFetchingNextPage = false
         }
     }
-    
-    private func setupCollectionView() {
-        
-        collectionView.csRegisterNibCell(nibClassType: PhotoCollectionViewCell.self)
-        collectionView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    }
 }
 
+// MARK: - UICollectionViewDataSource
 extension SearchResultViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
@@ -116,6 +130,7 @@ extension SearchResultViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 extension SearchResultViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
