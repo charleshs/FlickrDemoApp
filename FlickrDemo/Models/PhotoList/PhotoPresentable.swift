@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PhotoInterface {
+protocol PhotoPresentable {
     
     var id: String { get }
     
@@ -19,9 +19,11 @@ protocol PhotoInterface {
     var farm: Int { get }
     
     var title: String { get }
+    
+    var isLiked: Bool { get set }
 }
 
-extension PhotoInterface {
+extension PhotoPresentable {
     
     var urlString: String {
         return "https://farm\(farm).staticflickr.com/\(server)/\(id)_\(secret).jpg"

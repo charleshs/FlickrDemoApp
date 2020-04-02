@@ -25,7 +25,7 @@ class SearchResultViewController: UIViewController, Storyboarded {
     private var isFetchingNextPage: Bool = false
     private var currentPage: Int = 1
     
-    private var photoList: [PhotoInterface] = [] {
+    private var photoList: [PhotoPresentable] = [] {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.collectionView.reloadData()
@@ -80,8 +80,39 @@ extension SearchResultViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
         }
         let photo = photoList[indexPath.item]
-        cell.configureCell(title: photo.title, image: photo.urlString)
+        
+        cell.likeButton.isSelected = photo.isLiked
+        cell.configureCell(title: photo.title, image: photo.urlString, likeAction: { [weak self] (cell) in
+            self?.handleLikeAction(for: indexPath)
+            cell.likeButton.isSelected = self?.photoList[indexPath.item].isLiked ?? false
+        })
+        
         return cell
+    }
+    
+    private func handleLikeAction(for indexPath: IndexPath) {
+        
+        photoList[indexPath.item].isLiked.toggle()
+        let updatedPhoto = photoList[indexPath.item]
+        if updatedPhoto.isLiked {
+            savePhoto(updatedPhoto)
+        } else {
+            deletePhoto(updatedPhoto)
+        }
+    }
+    
+    private func savePhoto(_ photo: PhotoPresentable) {
+        
+        StorageManager.shared.savePhoto(photo) { (result) in
+            print(result)
+        }
+    }
+    
+    private func deletePhoto(_ photo: PhotoPresentable) {
+        
+        StorageManager.shared.deletePhoto(photo) { (result) in
+            print(result)
+        }
     }
 }
 

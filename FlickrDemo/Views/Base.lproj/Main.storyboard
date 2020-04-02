@@ -83,17 +83,43 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorite Photos View Controller-->
         <scene sceneID="IC6-6X-MOl">
             <objects>
-                <viewController id="tJq-k6-g4C" sceneMemberID="viewController">
+                <viewController id="tJq-k6-g4C" customClass="FavoritePhotosViewController" customModule="FlickrDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mgr-D9-98A">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Wty-rf-hk3">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="P9S-Vp-Dcn">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="tJq-k6-g4C" id="mRF-8m-f0s"/>
+                                    <outlet property="delegate" destination="tJq-k6-g4C" id="giL-I2-ciC"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Wty-rf-hk3" firstAttribute="top" secondItem="qr1-fq-9ia" secondAttribute="top" id="QWI-TF-eUa"/>
+                            <constraint firstItem="qr1-fq-9ia" firstAttribute="bottom" secondItem="Wty-rf-hk3" secondAttribute="bottom" id="dpg-sU-OEk"/>
+                            <constraint firstItem="qr1-fq-9ia" firstAttribute="trailing" secondItem="Wty-rf-hk3" secondAttribute="trailing" id="l2f-2v-3Dt"/>
+                            <constraint firstItem="Wty-rf-hk3" firstAttribute="leading" secondItem="Mgr-D9-98A" secondAttribute="leading" id="qWS-KR-QpX"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="qr1-fq-9ia"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="Acj-wb-C6N"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Wty-rf-hk3" id="Wlu-jD-uET"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5mV-6C-PjM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -105,6 +131,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kh2-Hp-ZBe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JHW-Yf-Qdf">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

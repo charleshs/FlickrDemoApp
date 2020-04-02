@@ -29,13 +29,15 @@ struct Photos: Codable {
     }
 }
 
-struct Photo: Codable, PhotoInterface {
+struct Photo: Codable, PhotoPresentable {
     
     let id: String
     let secret: String
     let server: String
     let farm: Int
     let title: String
+    
+    var isLiked: Bool = false
     
     enum CodingKeys: String, CodingKey {
         case id

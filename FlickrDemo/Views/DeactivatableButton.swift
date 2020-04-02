@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CSButton: UIButton {
+class DeactivatableButton: UIButton {
     
     override var isEnabled: Bool {
         didSet {

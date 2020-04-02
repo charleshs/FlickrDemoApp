@@ -20,25 +20,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="211" height="242"/>
                         <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TitleLabel TitleLabel TitleLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYx-IJ-w3x">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="TitleLabel TitleLabel TitleLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYx-IJ-w3x">
                         <rect key="frame" x="0.0" y="250" width="211" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHv-TC-Jhe" customClass="LikeButton" customModule="FlickrDemo" customModuleProvider="target">
+                        <rect key="frame" x="179" y="0.0" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="rHv-TC-Jhe" secondAttribute="height" id="Ykj-bt-uYZ"/>
+                            <constraint firstAttribute="width" constant="32" id="ZTE-2K-dha"/>
+                        </constraints>
+                        <connections>
+                            <action selector="didTapLikeButton:" destination="VgB-af-dcz" eventType="touchUpInside" id="b4h-4f-mbh"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="rHv-TC-Jhe" secondAttribute="trailing" id="1sz-v9-a0D"/>
                     <constraint firstAttribute="bottom" secondItem="NYx-IJ-w3x" secondAttribute="bottom" id="3Lz-hC-8YZ"/>
                     <constraint firstAttribute="trailing" secondItem="KqS-iN-eH3" secondAttribute="trailing" id="Pdt-p7-C7P"/>
                     <constraint firstItem="NYx-IJ-w3x" firstAttribute="top" secondItem="KqS-iN-eH3" secondAttribute="bottom" constant="8" id="UOe-CD-xqg"/>
                     <constraint firstItem="NYx-IJ-w3x" firstAttribute="leading" secondItem="ZhI-K1-RfK" secondAttribute="leading" id="cAn-Jz-T3j"/>
                     <constraint firstItem="KqS-iN-eH3" firstAttribute="top" secondItem="ZhI-K1-RfK" secondAttribute="top" id="dYi-vY-NRv"/>
+                    <constraint firstItem="rHv-TC-Jhe" firstAttribute="top" secondItem="ZhI-K1-RfK" secondAttribute="top" id="osm-KF-5N2"/>
                     <constraint firstItem="KqS-iN-eH3" firstAttribute="leading" secondItem="ZhI-K1-RfK" secondAttribute="leading" id="rfi-IR-oSI"/>
                     <constraint firstAttribute="trailing" secondItem="NYx-IJ-w3x" secondAttribute="trailing" id="wVu-Hv-6Sv"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="211" height="270"/>
             <connections>
+                <outlet property="likeButton" destination="rHv-TC-Jhe" id="DxH-bS-jdV"/>
                 <outlet property="photoImageView" destination="KqS-iN-eH3" id="Ost-tm-yF3"/>
                 <outlet property="titleLabel" destination="NYx-IJ-w3x" id="eQ9-dg-j2m"/>
             </connections>

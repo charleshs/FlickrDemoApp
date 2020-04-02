@@ -28,7 +28,7 @@ class SearchFormViewController: UIViewController {
     }()
     
     lazy var searchButton: UIButton = {
-        let button = CSButton()
+        let button = DeactivatableButton()
         button.setTitle("搜尋", for: .normal)
         button.backgroundColor = .systemBlue
         button.setTitleColor(.white, for: .normal)

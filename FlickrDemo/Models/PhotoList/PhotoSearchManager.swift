@@ -88,7 +88,7 @@ struct PhotoSearchRequest: CSRequest {
 
 protocol PhotoListProvider {
     
-    func fetchPhotoList(page: Int, completion: @escaping (Result<[PhotoInterface], Error>) -> Void)
+    func fetchPhotoList(page: Int, completion: @escaping (Result<[PhotoPresentable], Error>) -> Void)
 }
 
 class PhotoSearchManager: PhotoListProvider {
@@ -112,7 +112,7 @@ class PhotoSearchManager: PhotoListProvider {
         self.itemsPerPage = itemsPerPage
     }
     
-    func fetchPhotoList(page: Int, completion: @escaping (Result<[PhotoInterface], Error>) -> Void) {
+    func fetchPhotoList(page: Int, completion: @escaping (Result<[PhotoPresentable], Error>) -> Void) {
         
         let photoSearchRequest = PhotoSearchRequest(queryParams: [
             .apiKey(apiKey),

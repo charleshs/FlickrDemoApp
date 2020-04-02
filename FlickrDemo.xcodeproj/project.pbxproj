@@ -10,8 +10,10 @@
 		7C0125E924346BF0003410BF /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0125E824346BF0003410BF /* PhotoCollectionViewCell.xib */; };
 		7C0125EB2434722E003410BF /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0125EA2434722E003410BF /* StorageManager.swift */; };
 		7C0125EE24347250003410BF /* FlickrDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C0125EC24347250003410BF /* FlickrDemo.xcdatamodeld */; };
-		7C0125F3243474FF003410BF /* PhotoInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0125F2243474FF003410BF /* PhotoInterface.swift */; };
+		7C0125F3243474FF003410BF /* PhotoPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0125F2243474FF003410BF /* PhotoPresentable.swift */; };
 		7C0125F524347AD4003410BF /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0125F424347AD4003410BF /* Int+Extension.swift */; };
+		7C0125F724347E09003410BF /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0125F624347E09003410BF /* LikeButton.swift */; };
+		7C0125F92434825B003410BF /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0125F82434825B003410BF /* ImageAsset.swift */; };
 		7C04AB24243386960068F741 /* PhotoSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C04AB23243386960068F741 /* PhotoSearchManager.swift */; };
 		7C562FA8243319A900D451B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C562FA7243319A900D451B4 /* AppDelegate.swift */; };
 		7C562FAC243319A900D451B4 /* SearchFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C562FAB243319A900D451B4 /* SearchFormViewController.swift */; };
@@ -20,9 +22,10 @@
 		7C562FB4243319AB00D451B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C562FB2243319AB00D451B4 /* LaunchScreen.storyboard */; };
 		7C562FBC2433216E00D451B4 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C562FBB2433216E00D451B4 /* SearchResultViewController.swift */; };
 		7C562FC02433234200D451B4 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C562FBF2433234200D451B4 /* UIView+Extension.swift */; };
+		7C5690252436533E004F98BA /* FavoritePhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5690242436533E004F98BA /* FavoritePhotosViewController.swift */; };
 		7C8D6DF02433674700EEE795 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8D6DEF2433674700EEE795 /* UIScreen+Extension.swift */; };
 		7C8D6DF224337E6A00EEE795 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8D6DF124337E6A00EEE795 /* UITextField+Extension.swift */; };
-		7C8D6DF52433807000EEE795 /* CSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8D6DF42433807000EEE795 /* CSButton.swift */; };
+		7C8D6DF52433807000EEE795 /* DeactivatableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8D6DF42433807000EEE795 /* DeactivatableButton.swift */; };
 		7C8D6DF72433856200EEE795 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8D6DF62433856200EEE795 /* HTTPClient.swift */; };
 		7CC0FC402433929C00B0AD37 /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC0FC3F2433929C00B0AD37 /* PhotosModel.swift */; };
 		7CC0FC422433977100B0AD37 /* Flickr.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CC0FC412433977100B0AD37 /* Flickr.plist */; };
@@ -38,8 +41,10 @@
 		7C0125E824346BF0003410BF /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		7C0125EA2434722E003410BF /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		7C0125ED24347250003410BF /* FlickrDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlickrDemo.xcdatamodel; sourceTree = "<group>"; };
-		7C0125F2243474FF003410BF /* PhotoInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInterface.swift; sourceTree = "<group>"; };
+		7C0125F2243474FF003410BF /* PhotoPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPresentable.swift; sourceTree = "<group>"; };
 		7C0125F424347AD4003410BF /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		7C0125F624347E09003410BF /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		7C0125F82434825B003410BF /* ImageAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
 		7C04AB23243386960068F741 /* PhotoSearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearchManager.swift; sourceTree = "<group>"; };
 		7C562FA4243319A900D451B4 /* FlickrDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C562FA7243319A900D451B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,9 +55,10 @@
 		7C562FB5243319AB00D451B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C562FBB2433216E00D451B4 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		7C562FBF2433234200D451B4 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		7C5690242436533E004F98BA /* FavoritePhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePhotosViewController.swift; sourceTree = "<group>"; };
 		7C8D6DEF2433674700EEE795 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
 		7C8D6DF124337E6A00EEE795 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
-		7C8D6DF42433807000EEE795 /* CSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSButton.swift; sourceTree = "<group>"; };
+		7C8D6DF42433807000EEE795 /* DeactivatableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeactivatableButton.swift; sourceTree = "<group>"; };
 		7C8D6DF62433856200EEE795 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		7CC0FC3F2433929C00B0AD37 /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
 		7CC0FC412433977100B0AD37 /* Flickr.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Flickr.plist; sourceTree = "<group>"; };
@@ -98,7 +104,7 @@
 			children = (
 				7C04AB23243386960068F741 /* PhotoSearchManager.swift */,
 				7CC0FC3F2433929C00B0AD37 /* PhotosModel.swift */,
-				7C0125F2243474FF003410BF /* PhotoInterface.swift */,
+				7C0125F2243474FF003410BF /* PhotoPresentable.swift */,
 			);
 			path = PhotoList;
 			sourceTree = "<group>";
@@ -146,6 +152,7 @@
 				7CC0FC472433A3E800B0AD37 /* CellRegistrator.swift */,
 				7CC0FC4324339CD500B0AD37 /* Storyboarded.swift */,
 				7C0125F424347AD4003410BF /* Int+Extension.swift */,
+				7C0125F82434825B003410BF /* ImageAsset.swift */,
 			);
 			path = "Extensions+Helper";
 			sourceTree = "<group>";
@@ -156,7 +163,8 @@
 				7C562FAD243319A900D451B4 /* Main.storyboard */,
 				7CC0FC452433A32600B0AD37 /* PhotoCollectionViewCell.swift */,
 				7C0125E824346BF0003410BF /* PhotoCollectionViewCell.xib */,
-				7C8D6DF42433807000EEE795 /* CSButton.swift */,
+				7C8D6DF42433807000EEE795 /* DeactivatableButton.swift */,
+				7C0125F624347E09003410BF /* LikeButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -174,6 +182,7 @@
 		7CC0FC4A2433A5D200B0AD37 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7C5690242436533E004F98BA /* FavoritePhotosViewController.swift */,
 				7C562FAB243319A900D451B4 /* SearchFormViewController.swift */,
 				7C562FBB2433216E00D451B4 /* SearchResultViewController.swift */,
 			);
@@ -335,18 +344,21 @@
 				7C8D6DF02433674700EEE795 /* UIScreen+Extension.swift in Sources */,
 				7C8D6DF72433856200EEE795 /* HTTPClient.swift in Sources */,
 				7C0125F524347AD4003410BF /* Int+Extension.swift in Sources */,
+				7C0125F724347E09003410BF /* LikeButton.swift in Sources */,
 				7C562FBC2433216E00D451B4 /* SearchResultViewController.swift in Sources */,
 				7C04AB24243386960068F741 /* PhotoSearchManager.swift in Sources */,
 				7CC0FC462433A32600B0AD37 /* PhotoCollectionViewCell.swift in Sources */,
 				7C8D6DF224337E6A00EEE795 /* UITextField+Extension.swift in Sources */,
 				7CC0FC4F2433A87E00B0AD37 /* KingfisherWrapper.swift in Sources */,
+				7C0125F92434825B003410BF /* ImageAsset.swift in Sources */,
+				7C5690252436533E004F98BA /* FavoritePhotosViewController.swift in Sources */,
 				7CC0FC482433A3E800B0AD37 /* CellRegistrator.swift in Sources */,
 				7CC0FC402433929C00B0AD37 /* PhotosModel.swift in Sources */,
 				7CC0FC4424339CD500B0AD37 /* Storyboarded.swift in Sources */,
-				7C0125F3243474FF003410BF /* PhotoInterface.swift in Sources */,
+				7C0125F3243474FF003410BF /* PhotoPresentable.swift in Sources */,
 				7C562FC02433234200D451B4 /* UIView+Extension.swift in Sources */,
 				7C0125EB2434722E003410BF /* StorageManager.swift in Sources */,
-				7C8D6DF52433807000EEE795 /* CSButton.swift in Sources */,
+				7C8D6DF52433807000EEE795 /* DeactivatableButton.swift in Sources */,
 				7C562FA8243319A900D451B4 /* AppDelegate.swift in Sources */,
 				7C0125EE24347250003410BF /* FlickrDemo.xcdatamodeld in Sources */,
 			);
